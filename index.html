@@ -102,7 +102,7 @@ h2{margin:0;font-family:var(--sans);font-weight:500;font-size:clamp(34px, 4.4vw,
 
 
 /* career: two terminals */
-.term-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:20px;align-items:start}
+.term-grid{display:grid;grid-template-columns:1fr;gap:20px;align-items:start}
 .term ol{list-style:none;margin:0;padding:0}
 .term li{padding:22px 20px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
 .term li:last-child{border-bottom:0}
@@ -239,6 +239,65 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
   .vt-offer ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; color:var(--tx2); }
   .vt-offer li::before { content:"✓ "; color:var(--green); }
   @media (max-width:760px){ .vt-offer { grid-template-columns:1fr; } .vt-offer .l { border-right:0; border-bottom:1px solid var(--b1); } }
+
+  /* exocortex v2: views, graph, full screen, mobile */
+  .vt-bar { flex-wrap:nowrap; }
+  .vt-dots { display:flex; gap:8px; }
+  .vt-bar .t { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0; }
+  .vt-views { margin-left:auto; display:flex; gap:2px; background:var(--s1); border:1px solid var(--b1); border-radius:7px; padding:2px; flex:none; }
+  .vt-views button { font:inherit; font-size:12px; color:var(--mu); background:none; border:0; padding:5px 12px; border-radius:5px; cursor:pointer; }
+  .vt-views button:hover { color:var(--tx); }
+  .vt-views button[aria-selected="true"] { background:var(--s2); color:var(--tx); box-shadow:inset 0 -2px 0 var(--purple); }
+  .vt-views .vt-mob { display:none; }
+  .vt-fullbtn { flex:none; font:inherit; font-size:15px; line-height:1; color:var(--mu); background:none; border:1px solid var(--b1); border-radius:6px; width:30px; height:28px; cursor:pointer; }
+  .vt-fullbtn:hover { color:var(--cyan); border-color:var(--cyan); }
+  .vt-bar .r { display:none; }
+  .vt-main { position:relative; min-width:0; }
+  .vt-graph { display:none; position:relative; height:100%; min-height:560px; background:radial-gradient(80% 80% at 50% 50%, rgba(187,154,247,.06), transparent 70%); }
+  .vt-graph canvas { display:block; position:absolute; inset:0; touch-action:none; }
+  .vt-body[data-view="graph"] .vt-pane { display:none; }
+  .vt-body[data-view="graph"] .vt-graph { display:block; }
+  .vt-legend { position:absolute; left:14px; top:12px; display:flex; flex-wrap:wrap; gap:6px 14px; font-size:11px; color:var(--mu); pointer-events:none; }
+  .vt-legend i { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; }
+  .vt-hint { position:absolute; right:14px; bottom:10px; font-size:11px; color:var(--b2); pointer-events:none; }
+  .vt-node.leaf { color:var(--mu); cursor:default; }
+  .vt-node.leaf:hover { background:none; color:var(--mu); }
+  .vt-mobopen { display:none; margin-top:14px; width:100%; justify-content:center; }
+  html.vt-lock-scroll, html.vt-lock-scroll body { overflow:hidden; }
+  .vt-win.is-full { position:fixed; inset:0; z-index:60; border-radius:0; border:0; display:flex; flex-direction:column; height:100vh; height:100dvh; }
+  .vt-win.is-full .vt-body { flex:1; min-height:0; }
+  .vt-win.is-full .vt-side, .vt-win.is-full .vt-pane { max-height:none; height:100%; }
+  .vt-win.is-full .vt-graph { min-height:0; }
+  @media (max-width:760px) {
+    .vt-dots { display:none; }
+    .vt-bar .t { margin-left:0; font-size:11px; }
+    .vt-views .vt-mob { display:block; }
+    .vt-views button { padding:6px 10px; }
+    .vt-body { display:block; height:540px; min-height:0; position:relative; }
+    .vt-body > * { height:100%; }
+    .vt-side { border:0; max-height:none; font-size:14px; }
+    .vt-node { padding:9px 10px; }
+    .vt-pane { max-height:none; padding:18px; height:100%; overflow:auto; }
+    .vt-graph { min-height:0; }
+    .vt-body[data-view="files"] .vt-main { display:none; }
+    .vt-body:not([data-view="files"]) .vt-side { display:none; }
+    .vt-hint { left:14px; right:auto; }
+    .vt-mobopen { display:flex; }
+    .vt-win.is-full .vt-body { height:auto; }
+    .vt-win.is-full .vt-bar { padding-top:max(10px, env(safe-area-inset-top)); }
+  }
+
+  /* career: two columns until phones, tabs on phones */
+  .term-tabs { display:none; }
+  @media (min-width:761px) { .term-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+  @media (max-width:760px) {
+    .term-tabs { display:flex; gap:4px; margin:0 0 12px; border:1px solid var(--line); border-radius:8px; padding:4px; background:var(--s1); }
+    .term-tabs button { flex:1; font:inherit; font-size:13px; color:var(--muted); background:none; border:0; border-radius:6px; padding:10px 8px; cursor:pointer; }
+    .term-tabs button[aria-selected="true"] { background:var(--s2); color:var(--text); }
+    .term-tabs button[aria-selected="true"]:first-child { box-shadow:inset 0 -2px 0 var(--purple); }
+    .term-tabs button[aria-selected="true"]:last-child { box-shadow:inset 0 -2px 0 var(--blue); }
+    .term-grid .term:not(.on) { display:none; }
+  }
 </style>
 </head>
 <body>
@@ -303,7 +362,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
       </article>
       <article class="card">
         <div class="meta"><span style="color:var(--orange)">SVC-03</span><span>been there, done that</span></div>
-        <h3>Study-abroad guidance</h3>
+        <h3>Studying abroad? I can help</h3>
         <p>I did my master's abroad. I can help you choose programmes, plan applications and know what to expect when you land.</p>
         <div class="tags"><span class="tag" style="color:var(--orange)">applications</span><span class="tag" style="color:var(--yellow)">planning</span></div>
       </article>
@@ -328,10 +387,14 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
       <h2 id="career-h">Career timeline</h2>
       <p class="cmd"><span class="k">tmux</span> split <span class="f">--learning --doing</span></p>
     </div>
-    <p class="intro">Two windows, one story: what I learned on the left, what I did with it on the right.</p>
+    <p class="intro">Two windows, one story: what I learned, and what I did with it.</p>
+    <div class="term-tabs" role="tablist" aria-label="Career view">
+      <button type="button" role="tab" aria-selected="true">~/learning</button>
+      <button type="button" role="tab" aria-selected="false">~/doing</button>
+    </div>
     <div class="term-grid">
 
-      <div class="panel term">
+      <div class="panel term on">
         <h3 class="panel-h"><span>~/learning <span style="color:var(--purple)">education.log</span></span><span style="color:var(--purple)">2 entries</span></h3>
         <ol>
           <li><span class="yr" style="color:var(--orange)">2023 → 2025</span><span class="role">M.Eng, Electrical &amp; Computer Engineering</span><span class="org">University of Windsor</span><span class="say">Crossed an ocean to study power systems, batteries and electric vehicles. Came back knowing what a real winter feels like.</span></li>
@@ -341,11 +404,10 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
           <span class="lbl">SIDE QUESTS <span style="color:var(--green)">// certifications</span></span>
           <div class="tags" style="margin-top:0;padding-top:0">
             <span class="tag" style="color:var(--green)">Lean Six Sigma Black Belt</span>
-            <span class="tag" style="color:var(--cyan)">Avionics &amp; electrical systems design</span>
-            <span class="tag" style="color:var(--yellow)">Systems engineering &amp; product development</span>
-            <span class="tag" style="color:var(--purple)">SysML</span>
-            <span class="tag" style="color:var(--teal)">CATIA harness design</span>
-            <span class="tag" style="color:var(--orange)">AutoCAD</span>
+            <span class="tag" style="color:var(--cyan)">Avionics &amp; Electrical Systems Design</span>
+            <span class="tag" style="color:var(--yellow)">Systems Engineering &amp; Product Development</span>
+            <span class="tag" style="color:var(--purple)">Safety Engineering</span>
+            <span class="tag" style="color:var(--teal)">Scaled Agile Framework (SAFe)</span>
           </div>
         </div>
       </div>
@@ -415,17 +477,30 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
     </div>
     <p class="intro">My second brain: one Obsidian vault, four areas and one MOC template used everywhere. Click around. This is the real system, with my notes swapped for placeholders.</p>
 
-    <div class="vt-win">
-      <div class="vt-bar" aria-hidden="true">
-        <i class="vt-dot"></i><i class="vt-dot"></i><i class="vt-dot"></i>
+    <div class="vt-win" id="vt-win">
+      <div class="vt-bar">
+        <span class="vt-dots" aria-hidden="true"><i class="vt-dot"></i><i class="vt-dot"></i><i class="vt-dot"></i></span>
         <span class="t" id="vt-tab">Exocortex.md</span>
-        <span class="r">Exocortex · Tokyo Night</span>
+        <div class="vt-views" role="tablist" aria-label="Vault view">
+          <button type="button" role="tab" data-view="files" class="vt-mob">Files</button>
+          <button type="button" role="tab" data-view="note" aria-selected="true">Note</button>
+          <button type="button" role="tab" data-view="graph">Graph</button>
+        </div>
+        <button type="button" class="vt-fullbtn" id="vt-full" data-vt-full aria-label="Open full screen">⛶</button>
       </div>
-      <div class="vt-body">
+      <div class="vt-body" id="vt-body" data-view="note">
         <nav class="vt-side" id="vt-tree" aria-label="Exocortex folders"></nav>
-        <article class="vt-pane" id="vt-pane" aria-live="polite"></article>
+        <div class="vt-main">
+          <article class="vt-pane" id="vt-pane" aria-live="polite"></article>
+          <div class="vt-graph" id="vt-graph">
+            <canvas aria-label="Graph of how the notes link together" role="img"></canvas>
+            <div class="vt-legend"></div>
+            <div class="vt-hint">drag · scroll or pinch to zoom · click a big node to open it</div>
+          </div>
+        </div>
       </div>
     </div>
+    <button type="button" class="btn ghost vt-mobopen" data-vt-full>Open Exocortex full screen →</button>
     <div class="vt-stats" id="vt-stats"></div>
 
     <div class="panel vt-offer">
@@ -494,22 +569,18 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 </script>
 <script>
 /* =====================================================================
-   VAULT TOUR — TEMPLATE
+   EXOCORTEX — VAULT TOUR (template)
    Everything shown comes from the VAULT object below. Edit it to change
    the tour; no other code needs touching.
 
-   NUMBERING CONVENTION (applied automatically by number() further down)
+   NUMBERING CONVENTION (applied automatically further down)
    - Top-level areas are numbered by their order: 00, 01, 02, 03 …
      No gaps. The old vault had 00, 01, 02, 04 — "03" was missing, so the
      Library is now 03. Empty placeholder folders (05, 06, 07) are gone.
    - Sub-folders take their parent's number plus a dot: 01.1, 01.2 …
-     (The old "1.2 / 1.7" under 00 Personal become 00.1, 00.2 …)
-   - System folders (attachments, drawings, templates) sit at 99 so they
+   - System folders (templates, attachments, drawings) sit at 99 so they
      always sort last and never shift the area numbers.
-   - Every area and subject has exactly one MOC, named "<Name> — MOC"
-     (one style, an em dash, no underscores or "MOC_" prefixes).
-   - Card subtitles describe their own area (the old Learning and Work
-     subtitles were swapped).
+   - Every area and subject has exactly one MOC, named "<Name> — MOC".
    ===================================================================== */
 
 const VAULT = {
@@ -527,6 +598,9 @@ const VAULT = {
     s3:       "https://i.pinimg.com/originals/64/d5/17/64d51720139c813946ca597033215585.gif",
     s4:       "https://i.pinimg.com/originals/0c/d0/97/0cd097dc4b5e78e0446fc97e4216b520.gif"
   },
+
+  /* Graph colours per area (Tokyo Night) */
+  colors: { home: "#bb9af7", personal: "#f7768e", learning: "#7dcfff", work: "#ff9e64", library: "#9ece6a", system: "#73daca" },
 
   /* The one MOC template every subject uses */
   subjectTemplate: [
@@ -602,8 +676,10 @@ const VAULT = {
 /* ===================== Rendering — no need to edit below ===================== */
 (function () {
   const $ = id => document.getElementById(id);
-  const treeEl = $("vt-tree"), pane = $("vt-pane"), tab = $("vt-tab");
+  const win = $("vt-win"), body = $("vt-body"), treeEl = $("vt-tree"), pane = $("vt-pane"), tab = $("vt-tab");
+  if (!win) return;
   const pad = n => String(n).padStart(2, "0");
+  const strip = s => s.replace(/\[\[(.+?)\]\]/g, "$1");
   const wl = s => s.replace(/\[\[(.+?)\]\]/g, '<span class="vt-wl">$1</span>');
   const list = a => `<ul>${a.map(i => `<li>${wl(i)}</li>`).join("")}</ul>`;
   const img = k => VAULT.img[k] ? `<img src="${VAULT.img[k]}" alt="" loading="lazy" onerror="this.remove()">` : "";
@@ -615,10 +691,10 @@ const VAULT = {
   /* Number everything from its position */
   VAULT.areas.forEach((a, i) => {
     a.num = pad(i);
-    a.folders && a.folders.forEach((f, j) => { f.num = `${a.num}.${j + 1}`; f.id = `${a.id}-${j + 1}`; });
+    (a.folders || []).forEach((f, j) => { f.num = `${a.num}.${j + 1}`; f.id = `${a.id}-${j + 1}`; });
   });
 
-  /* ---- Pages ---- */
+  /* ---------------- Pages ---------------- */
   const pages = {};
   pages.home = { file: "Exocortex.md", crumb: VAULT.name, html: () => `
     <div class="vt-banner">${img("banner")}</div>
@@ -676,15 +752,16 @@ const VAULT = {
     pages[id] = { file: `${t.name}.md`, crumb: `${VAULT.name} / 99 System / Templates`, html: () => html };
   });
 
-  /* ---- Tree ---- */
+  /* ---------------- File tree ---------------- */
   const tree = [{ t: "Exocortex.md", go: "home", file: true, moc: true }];
   VAULT.areas.forEach(a => {
     const kids = (a.folders || []).map(f => f.lock
       ? { num: f.num, t: f.name, lock: true }
-      : { num: f.num, t: f.name, kids: f.subject ? [{ t: moc(f.name), go: f.id, file: true, moc: true }] : [{ t: "…", file: true }] });
+      : { num: f.num, t: f.name, kids: f.subject ? [{ t: moc(f.name), go: f.id, file: true, moc: true }]
+                                                  : (f.items || []).map(i => ({ t: strip(i), file: true, leaf: true })) });
     if (a.base) kids.push({ t: "Books", n: a.shelves.length * a.booksPerShelf });
     kids.push({ t: a.base ? `${a.num} ${a.name}.base` : moc(`${a.num} ${a.name}`), go: a.id, file: true, moc: true });
-    tree.push({ num: a.num, t: a.name, kids, open: a.id === "learning" });
+    tree.push({ num: a.num, t: a.name, kids });
   });
   tree.push({ num: "99", t: "System", kids: VAULT.system.map(s => s.templates
     ? { t: s.name, kids: s.templates.map(x => ({ t: x.name, go: x.id, file: true, tpl: true })) }
@@ -695,52 +772,76 @@ const VAULT = {
     nodes.forEach(nd => {
       const b = document.createElement("button");
       b.type = "button";
-      b.className = "vt-node" + (nd.file ? " file" : "") + (nd.moc ? " moc" : "") + (nd.tpl ? " tpl" : "") + (nd.lock ? " lock" : "");
-      const ic = nd.lock ? "🔒" : nd.file ? "◇" : nd.kids && nd.open ? "▾" : "▸";
+      b.className = "vt-node" + (nd.file ? " file" : "") + (nd.moc ? " moc" : "") + (nd.tpl ? " tpl" : "") +
+                    (nd.lock ? " lock" : "") + (nd.leaf ? " leaf" : "");
+      const ic = nd.lock ? "🔒" : nd.file ? "◇" : "▸";
       b.innerHTML = `<span class="ic">${ic}</span><span>${nd.num ? `<span class="num">${nd.num}</span> ` : ""}${nd.t}</span>${nd.n ? `<span class="n">${nd.n}</span>` : ""}`;
       if (nd.go) b.dataset.go = nd.go;
-      if (nd.lock) { b.setAttribute("aria-disabled", "true"); b.title = "Encrypted"; }
+      if (nd.lock || nd.leaf) { b.setAttribute("aria-disabled", "true"); b.tabIndex = -1; if (nd.lock) b.title = "Encrypted"; }
       parent.appendChild(b);
       if (nd.kids) {
         const k = document.createElement("div");
-        k.className = "vt-kids"; k.hidden = !nd.open;
-        b.setAttribute("aria-expanded", String(!!nd.open));
+        k.className = "vt-kids"; k.hidden = true;
+        b.setAttribute("aria-expanded", "false");
         build(nd.kids, k); parent.appendChild(k);
+        /* Folders only open/close themselves (and close their open siblings).
+           Opening a note never touches the tree. */
         b.addEventListener("click", () => {
-          k.hidden = !k.hidden;
-          b.setAttribute("aria-expanded", String(!k.hidden));
-          b.querySelector(".ic").textContent = k.hidden ? "▸" : "▾";
-          const m = nd.kids.find(c => c.moc);
-          if (!k.hidden && m) show(m.go);
+          const open = k.hidden;
+          if (open) parent.querySelectorAll(":scope > .vt-kids").forEach(s => { if (s !== k && !s.hidden) setOpen(s, false); });
+          setOpen(k, open);
         });
       }
     });
   })(tree, treeEl);
-
-  /* ---- Navigation ---- */
-  function expandTo(id) {
-    const node = treeEl.querySelector(`.vt-node[data-go="${id}"]`);
-    let el = node && node.parentElement;
-    while (el && el !== treeEl) {
-      if (el.classList.contains("vt-kids") && el.hidden) {
-        el.hidden = false;
-        const btn = el.previousElementSibling;
-        btn.setAttribute("aria-expanded", "true");
-        btn.querySelector(".ic").textContent = "▾";
-      }
-      el = el.parentElement;
-    }
+  function setOpen(k, open) {
+    k.hidden = !open;
+    const btn = k.previousElementSibling;
+    btn.setAttribute("aria-expanded", String(open));
+    btn.querySelector(".ic").textContent = open ? "▾" : "▸";
   }
+
+  /* ---------------- Views: files · note · graph ---------------- */
+  const mobile = () => window.matchMedia("(max-width:760px)").matches;
+  let view = "note";
+  function setView(v) {
+    if (v === "files" && !mobile()) v = "note";
+    view = v;
+    body.dataset.view = v;
+    win.querySelectorAll(".vt-views button").forEach(b => b.setAttribute("aria-selected", String(b.dataset.view === v)));
+    if (v === "graph") graph.start(); else graph.stop();
+  }
+  win.querySelectorAll(".vt-views button").forEach(b => b.addEventListener("click", () => setView(b.dataset.view)));
+  window.matchMedia("(max-width:760px)").addEventListener("change", () => setView(view));
+
+  /* ---------------- Full screen (works like its own page; Back closes it) ---------------- */
+  const fullBtns = document.querySelectorAll("[data-vt-full]");
+  function setFull(on, fromHistory) {
+    if (on === win.classList.contains("is-full")) return;
+    win.classList.toggle("is-full", on);
+    document.documentElement.classList.toggle("vt-lock-scroll", on);
+    $("vt-full").textContent = on ? "✕" : "⛶";
+    $("vt-full").setAttribute("aria-label", on ? "Close full screen" : "Open full screen");
+    if (!fromHistory) { if (on) history.pushState({ vt: 1 }, "", "#exocortex-app"); else if (history.state && history.state.vt) history.back(); }
+    if (on && mobile() && view === "note") setView("files");
+    graph.resize();
+  }
+  fullBtns.forEach(b => b.addEventListener("click", () => setFull(!win.classList.contains("is-full"))));
+  window.addEventListener("popstate", () => setFull(location.hash === "#exocortex-app", true));
+  document.addEventListener("keydown", e => { if (e.key === "Escape" && win.classList.contains("is-full")) setFull(false); });
+  if (location.hash === "#exocortex-app") history.replaceState(null, "", "#exocortex");
+
+  /* ---------------- Open a note ---------------- */
   let clockTimer;
   function show(id) {
     const p = pages[id]; if (!p) return;
     pane.innerHTML = `<div class="vt-crumb">${p.crumb}</div>` + p.html();
     tab.textContent = p.file;
-    expandTo(id);
     treeEl.querySelectorAll(".vt-node").forEach(n => n.classList.toggle("on", n.dataset.go === id));
     pane.scrollTop = 0;
     clearInterval(clockTimer);
     if (id === "home") { tick(); clockTimer = setInterval(tick, 30000); }
+    graph.focus(id);
   }
   function tick() {
     const tm = $("vt-tm"), dt = $("vt-dt"); if (!tm) return;
@@ -748,23 +849,216 @@ const VAULT = {
     tm.textContent = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
     dt.textContent = now.toLocaleDateString([], { weekday: "long", month: "long", day: "numeric" });
   }
-  document.querySelector(".vt").addEventListener("click", e => {
+  win.addEventListener("click", e => {
     const t = e.target.closest("[data-go]");
-    if (t && !t.classList.contains("lock")) show(t.dataset.go);
+    if (t && !t.classList.contains("lock")) { show(t.dataset.go); if (view !== "note") setView("note"); }
   });
 
-  /* ---- Stats (computed from the template) ---- */
+  /* ---------------- Graph view ---------------- */
+  const graph = (function () {
+    const box = $("vt-graph"), cv = box.querySelector("canvas"), ctx = cv.getContext("2d");
+    const N = [], E = [], byId = {};
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function node(id, label, group, opts = {}) {
+      const n = { id, label, group, x: (Math.random() - .5) * 300, y: (Math.random() - .5) * 300, vx: 0, vy: 0, deg: 0, ...opts };
+      N.push(n); byId[id] = n; return n;
+    }
+    function link(a, b) { E.push([byId[a], byId[b]]); byId[a].deg++; byId[b].deg++; }
+
+    node("home", "Exocortex", "home", { go: "home", x: 0, y: 0 });
+    VAULT.areas.forEach(a => {
+      node(a.id, a.name, a.id, { go: a.id }); link("home", a.id);
+      (a.folders || []).forEach(f => {
+        if (f.subject) {
+          node(f.id, moc(f.name), a.id, { go: f.id }); link(a.id, f.id);
+          VAULT.subjectTemplate.forEach(s => s.items.filter(i => i.startsWith("[[")).forEach(i => {
+            const id = f.id + ":" + strip(i); node(id, strip(i), a.id); link(f.id, id);
+          }));
+        } else {
+          node(f.id, f.name, a.id, { lock: !!f.lock }); link(a.id, f.id);
+          (f.items || []).forEach(i => { const id = f.id + ":" + strip(i); node(id, strip(i), a.id); link(f.id, id); });
+        }
+      });
+      if (a.base) a.shelves.forEach(([s]) => {
+        node(a.id + ":" + s, s, a.id); link(a.id, a.id + ":" + s);
+        for (let k = 1; k <= a.booksPerShelf; k++) { const id = `${a.id}:${s}:${k}`; node(id, `Book ${k}`, a.id); link(a.id + ":" + s, id); }
+      });
+    });
+    node("system", "Templates", "system"); link("home", "system");
+    VAULT.system[0].templates.forEach(t => { node(t.id, t.name, "system", { go: t.id }); link("system", t.id); });
+    /* cross-links, like real notes linking each other */
+    const subj = VAULT.areas.find(a => a.cards);
+    if (subj) {
+      subj.folders.filter(f => f.subject).forEach(f => link("tpl-moc", f.id));
+      link(subj.folders[1].id, "library:Money");
+      link(subj.folders[3].id, "library:Business");
+    }
+    const workKnow = VAULT.areas.find(a => a.id === "work");
+    if (workKnow) link("work-1", "library:Engineering");
+    N.forEach(n => { n.r = n.id === "home" ? 9 : 2.5 + Math.sqrt(n.deg) * 1.6; });
+
+    let W = 0, H = 0, dpr = 1, raf = 0, running = false, alpha = 1, hover = null, sel = null, drag = null;
+    const cam = { x: 0, y: 0, k: 1 };
+
+    function resize() {
+      const r = box.getBoundingClientRect();
+      if (!r.width) return;
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = r.width; H = r.height;
+      cv.width = W * dpr; cv.height = H * dpr;
+      cv.style.width = W + "px"; cv.style.height = H + "px";
+      cam.k = Math.min(W, H) / 520;
+      draw();
+    }
+    new ResizeObserver(resize).observe(box);
+
+    function stepSim() {
+      for (let i = 0; i < N.length; i++) {
+        const a = N[i];
+        for (let j = i + 1; j < N.length; j++) {
+          const b = N[j];
+          let dx = b.x - a.x, dy = b.y - a.y, d2 = dx * dx + dy * dy || .01;
+          if (d2 > 90000) continue;
+          const f = 900 / d2 * alpha, d = Math.sqrt(d2);
+          dx /= d; dy /= d;
+          a.vx -= dx * f; a.vy -= dy * f; b.vx += dx * f; b.vy += dy * f;
+        }
+      }
+      E.forEach(([a, b]) => {
+        const dx = b.x - a.x, dy = b.y - a.y, d = Math.sqrt(dx * dx + dy * dy) || .01;
+        const rest = (a.id === "home" || b.id === "home") ? 95 : 42;
+        const f = (d - rest) * .03 * alpha;
+        a.vx += dx / d * f; a.vy += dy / d * f; b.vx -= dx / d * f; b.vy -= dy / d * f;
+      });
+      N.forEach(n => {
+        n.vx -= n.x * .004 * alpha; n.vy -= n.y * .004 * alpha;
+        if (n === drag) { n.vx = n.vy = 0; return; }
+        if (n.id === "home") { n.x *= .9; n.y *= .9; n.vx = n.vy = 0; return; }
+        n.vx *= .82; n.vy *= .82; n.x += n.vx; n.y += n.vy;
+      });
+      alpha = Math.max(alpha * .992, .02);
+    }
+
+    const neigh = n => { const s = new Set([n]); E.forEach(([a, b]) => { if (a === n) s.add(b); if (b === n) s.add(a); }); return s; };
+    function draw() {
+      if (!W) return;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, W, H);
+      ctx.translate(W / 2 + cam.x, H / 2 + cam.y); ctx.scale(cam.k, cam.k);
+      const focusN = hover || sel, hi = focusN ? neigh(focusN) : null;
+      ctx.lineWidth = 1 / cam.k;
+      E.forEach(([a, b]) => {
+        const on = hi && hi.has(a) && hi.has(b) && (a === focusN || b === focusN);
+        ctx.strokeStyle = on ? VAULT.colors[focusN.group] + "cc" : hi ? "rgba(65,72,104,.25)" : "rgba(86,95,137,.55)";
+        ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+      });
+      N.forEach(n => {
+        const c = VAULT.colors[n.group], dim = hi && !hi.has(n);
+        ctx.globalAlpha = dim ? .18 : n.lock ? .45 : 1;
+        if (n === focusN || (n.go && n.id === sel?.id)) { ctx.fillStyle = c + "33"; ctx.beginPath(); ctx.arc(n.x, n.y, n.r + 6, 0, 7); ctx.fill(); }
+        ctx.fillStyle = c; ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, 7); ctx.fill();
+        const show = n === focusN || (hi && hi.has(n)) || (!hi && (n.r > 5 || cam.k > 1.6));
+        if (show && !dim) {
+          ctx.globalAlpha = n === focusN ? 1 : .85;
+          ctx.fillStyle = "#c0caf5";
+          ctx.font = `${(n.r > 6 ? 12 : 10.5) / Math.max(cam.k, .9)}px "JetBrains Mono", monospace`;
+          ctx.textAlign = "center";
+          ctx.fillText(n.label, n.x, n.y + n.r + 12 / Math.max(cam.k, .9));
+        }
+      });
+      ctx.globalAlpha = 1;
+    }
+    function loop() {
+      stepSim(); draw();
+      if (running && (alpha > .03 || drag)) raf = requestAnimationFrame(loop); else raf = 0;
+    }
+    function kick(a = .5) { alpha = Math.max(alpha, a); if (running && !raf) raf = requestAnimationFrame(loop); }
+
+    /* settle once up front so the first view is calm */
+    for (let i = 0; i < 260; i++) stepSim();
+
+    function toWorld(e) {
+      const r = cv.getBoundingClientRect();
+      return { x: (e.clientX - r.left - W / 2 - cam.x) / cam.k, y: (e.clientY - r.top - H / 2 - cam.y) / cam.k };
+    }
+    function hit(p) {
+      let best = null, bd = 1e9;
+      N.forEach(n => { const d = Math.hypot(n.x - p.x, n.y - p.y); if (d < n.r + 10 / cam.k && d < bd) { bd = d; best = n; } });
+      return best;
+    }
+    let down = null, pan = null, pinch = null;
+    const ptrs = new Map();
+    cv.addEventListener("pointerdown", e => {
+      cv.setPointerCapture(e.pointerId);
+      ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; pinch = { d: Math.hypot(a.x - b.x, a.y - b.y), k: cam.k }; drag = null; pan = null; return; }
+      const p = toWorld(e), n = hit(p);
+      down = { x: e.clientX, y: e.clientY, n, moved: false };
+      if (n) { drag = n; kick(.3); } else pan = { x: e.clientX - cam.x, y: e.clientY - cam.y };
+    });
+    cv.addEventListener("pointermove", e => {
+      if (ptrs.has(e.pointerId)) ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+      if (pinch && ptrs.size === 2) { const [a, b] = [...ptrs.values()]; cam.k = Math.min(3, Math.max(.4, pinch.k * Math.hypot(a.x - b.x, a.y - b.y) / pinch.d)); draw(); return; }
+      if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 4) down.moved = true;
+      if (drag) { const p = toWorld(e); drag.x = p.x; drag.y = p.y; kick(.3); return; }
+      if (pan) { cam.x = e.clientX - pan.x; cam.y = e.clientY - pan.y; draw(); return; }
+      if (e.pointerType === "mouse") {
+        const n = hit(toWorld(e));
+        if (n !== hover) { hover = n; cv.style.cursor = n ? (n.go ? "pointer" : "grab") : "default"; draw(); }
+      }
+    });
+    function up(e) {
+      ptrs.delete(e.pointerId);
+      if (ptrs.size < 2) pinch = null;
+      if (down && !down.moved && down.n) {
+        if (down.n.go) { show(down.n.go); setView("note"); }
+        else { sel = down.n; draw(); }
+      } else if (down && !down.moved && !down.n) { sel = null; draw(); }
+      down = null; drag = null; pan = null;
+    }
+    cv.addEventListener("pointerup", up);
+    cv.addEventListener("pointercancel", up);
+    cv.addEventListener("pointerleave", () => { if (hover) { hover = null; draw(); } });
+    cv.addEventListener("wheel", e => {
+      e.preventDefault();
+      cam.k = Math.min(3, Math.max(.4, cam.k * (e.deltaY < 0 ? 1.1 : .9))); draw();
+    }, { passive: false });
+
+    /* legend */
+    box.querySelector(".vt-legend").innerHTML =
+      [["home", "Home"], ...VAULT.areas.map(a => [a.id, a.name]), ["system", "Templates"]]
+        .map(([g, l]) => `<span><i style="background:${VAULT.colors[g]}"></i>${l}</span>`).join("");
+
+    return {
+      start() { running = true; resize(); if (reduce) { draw(); } else kick(.25); },
+      stop() { running = false; },
+      resize() { requestAnimationFrame(resize); },
+      focus(id) { sel = byId[id] || null; if (running) draw(); }
+    };
+  })();
+
+  /* ---------------- Stats ---------------- */
   const subjects = VAULT.areas.flatMap(a => a.folders || []).filter(f => f.subject).length;
-  const mocs = 1 + VAULT.areas.length + subjects;
   $("vt-stats").innerHTML = `
     <span><b>${VAULT.areas.length}</b> areas</span>
-    <span><b>${mocs}</b> maps of content</span>
+    <span><b>${1 + VAULT.areas.length + subjects}</b> maps of content</span>
     <span><b>1</b> MOC template, used everywhere</span>
     <span><b>≤ 3</b> clicks from home to any note</span>`;
 
+  setView("note");
   show("home");
 })();
-/* ====== END VAULT TOUR SCRIPT ====== */
+
+/* ====== Career: tabs on small screens ====== */
+(function () {
+  const grid = document.querySelector(".term-grid"), tabs = document.querySelectorAll(".term-tabs button");
+  if (!grid || !tabs.length) return;
+  const panels = grid.querySelectorAll(".term");
+  tabs.forEach((t, i) => t.addEventListener("click", () => {
+    tabs.forEach((x, j) => x.setAttribute("aria-selected", String(i === j)));
+    panels.forEach((p, j) => p.classList.toggle("on", i === j));
+  }));
+})();
 </script>
 </body>
 </html>
