@@ -146,6 +146,99 @@ h2{margin:0;font-family:var(--sans);font-weight:500;font-size:clamp(34px, 4.4vw,
 .contact .sub{color:var(--text2);max-width:640px;margin:0 0 32px;font-size:15px}
 
 footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:40px 0 32px;font-size:12px;color:var(--muted)}
+
+/* exocortex: obsidian vault tour */
+  .vt .vt-card .art, .vt .vt-banner { background:radial-gradient(120% 140% at 10% 0%, rgba(187,154,247,.35), transparent 60%), radial-gradient(120% 140% at 90% 100%, rgba(125,207,255,.25), transparent 60%), #24283b; }
+  @media (max-width:760px){ .vt .vt-bar .r { display:none; } }
+  .vt { --bg:#1a1b26; --s1:#1f2335; --s2:#24283b; --b1:#414868; --b2:#565f89;
+        --tx:#c0caf5; --tx2:#a9b1d6; --mu:#9aa5ce;
+        --pink:#f7768e; --orange:#ff9e64; --yellow:#e0af68; --green:#9ece6a;
+        --teal:#73daca; --cyan:#7dcfff; --blue:#7aa2f7; --purple:#bb9af7;
+        color:var(--tx);  }
+  .vt * { box-sizing:border-box; }
+
+  .vt-win { border:1px solid var(--b1); border-radius:12px; background:var(--s1); overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,.35); }
+  .vt-bar { display:flex; align-items:center; gap:8px; padding:10px 14px; background:var(--s2); border-bottom:1px solid var(--b1); font-size:12px; color:var(--mu); }
+  .vt-dot { width:11px; height:11px; border-radius:50%; }
+  .vt-dot:nth-child(1){background:var(--pink)} .vt-dot:nth-child(2){background:var(--yellow)} .vt-dot:nth-child(3){background:var(--green)}
+  .vt-bar .t { margin-left:10px; color:var(--tx2); }
+  .vt-bar .r { margin-left:auto; color:var(--b2); }
+
+  .vt-body { display:grid; grid-template-columns:270px 1fr; min-height:560px; }
+  .vt-side { border-right:1px solid var(--b1); padding:12px 6px; font-size:13px; overflow:auto; max-height:660px; }
+  .vt-side .lbl { color:var(--b2); font-size:11px; letter-spacing:.1em; padding:4px 10px 8px; }
+  .vt-node { display:flex; align-items:center; gap:6px; width:100%; text-align:left; background:none; border:0; color:var(--tx2);
+             font:inherit; padding:5px 10px; border-radius:6px; cursor:pointer; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .vt-node:hover { background:var(--s2); color:var(--tx); }
+  .vt-node.on { background:var(--s2); color:var(--tx); box-shadow:inset 2px 0 0 var(--purple); }
+  .vt-node .ic { width:14px; flex:none; font-size:11px; color:var(--blue); }
+  .vt-node.file .ic { color:var(--mu); }
+  .vt-node.moc { color:var(--purple); }
+  .vt-node.tpl { color:var(--teal); }
+  .vt-node.lock { color:var(--b2); cursor:default; }
+  .vt-node.lock:hover { background:none; color:var(--b2); }
+  .vt-node .num { color:var(--b2); }
+  .vt-node .n { margin-left:auto; color:var(--b2); font-size:11px; }
+  .vt-kids { padding-left:14px; }
+  .vt-kids[hidden] { display:none; }
+
+  .vt-pane { padding:22px 26px 28px; overflow:auto; max-height:660px; }
+  .vt-crumb { color:var(--b2); font-size:12px; margin-bottom:14px; }
+  .vt-pane h3 { font-family:"Space Grotesk",sans-serif; font-size:24px; margin:0 0 6px; }
+  .vt-pane h4 { font-size:13px; color:var(--cyan); margin:22px 0 8px; font-weight:600; }
+  .vt-pane p { color:var(--tx2); font-size:13px; line-height:1.7; margin:0 0 10px; }
+  .vt-pane ul { list-style:none; margin:0; padding:0; font-size:13px; }
+  .vt-pane li { padding:3px 0; color:var(--tx2); }
+  .vt-pane li::before { content:"– "; color:var(--b2); }
+  .vt-wl { color:var(--purple); }
+  .vt-wl::before { content:"[["; color:var(--b2); } .vt-wl::after { content:"]]"; color:var(--b2); }
+  .vt-lock { color:var(--b2); }
+  .vt-fm { background:var(--s2); border:1px solid var(--b1); border-radius:8px; padding:10px 14px; font-size:12px; color:var(--mu); margin:0 0 14px; white-space:pre; overflow:auto; }
+  .vt-fm b { color:var(--teal); font-weight:400; }
+
+  .vt-banner { height:150px; border-radius:10px; margin:-4px 0 0; overflow:hidden; position:relative; background:var(--s2); }
+  .vt-banner img { width:100%; height:100%; object-fit:cover; display:block; }
+  .vt-banner::after { content:""; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(26,27,38,0) 30%, var(--s1)); }
+  .vt-clock { text-align:center; margin:-46px 0 22px; position:relative; z-index:1; }
+  .vt-clock .tm { font-family:"Space Grotesk",sans-serif; font-size:44px; font-weight:700; letter-spacing:.1em; }
+  .vt-clock .dt { font-size:11px; color:var(--mu); letter-spacing:.18em; text-transform:uppercase; }
+
+  .vt-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; }
+  .vt-card { text-align:left; background:var(--s2); border:1px solid var(--b1); border-radius:12px; padding:0; overflow:hidden; cursor:pointer;
+             color:var(--tx); font:inherit; transition:transform .25s ease, border-color .25s ease; }
+  .vt-card:hover { transform:translateY(-4px); border-color:var(--b2); }
+  .vt-card .art { height:96px; position:relative; background:var(--s1); }
+  .vt-card .art img { width:100%; height:100%; object-fit:cover; display:block; }
+  .vt-card .art::after { content:""; position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)); }
+  .vt-card .tx { padding:12px 14px 14px; }
+  .vt-card .tt { font-family:"Space Grotesk",sans-serif; font-size:17px; font-weight:700; }
+  .vt-card .st { color:var(--mu); font-size:11px; margin-top:4px; letter-spacing:.04em; }
+
+  .vt-note { margin-top:18px; padding:10px 12px; border:1px dashed var(--b1); border-radius:8px; font-size:12px; color:var(--mu); line-height:1.6; }
+  .vt-books { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin-top:8px; }
+  .vt-book { background:var(--s2); border:1px solid var(--b1); border-left:4px solid var(--c); border-radius:6px; padding:10px; font-size:12px; color:var(--tx2); line-height:1.4; }
+  .vt-book small { display:block; color:var(--c); margin-top:4px; font-size:10px; letter-spacing:.08em; text-transform:uppercase; }
+
+  .vt-stats { display:flex; flex-wrap:wrap; gap:10px 26px; margin-top:22px; font-size:12px; color:var(--mu); }
+  .vt-stats b { color:var(--green); font-weight:600; }
+
+  @media (max-width:760px) {
+    .vt-body { grid-template-columns:1fr; }
+    .vt-side { border-right:0; border-bottom:1px solid var(--b1); max-height:240px; }
+    .vt-pane { padding:18px; max-height:none; }
+  }
+  @media (prefers-reduced-motion:reduce) { .vt-card { transition:none; } .vt-card:hover { transform:none; } }
+  
+  .vt-offer { margin-top:20px; display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:0; }
+  .vt-offer .l { padding:28px; border-right:1px solid var(--b1); display:flex; flex-direction:column; gap:14px; }
+  .vt-offer .r { padding:28px; display:flex; flex-direction:column; gap:12px; justify-content:center; background:var(--s2); }
+  .vt-offer h3 { margin:0; font-family:var(--sans); font-weight:500; font-size:clamp(24px,2.6vw,32px); line-height:1.15; }
+  .vt-offer h3 span { color:var(--purple); }
+  .vt-offer p { margin:0; color:var(--tx2); }
+  .vt-offer .lbl { font-size:12px; color:var(--mu); letter-spacing:.08em; }
+  .vt-offer ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; color:var(--tx2); }
+  .vt-offer li::before { content:"✓ "; color:var(--green); }
+  @media (max-width:760px){ .vt-offer { grid-template-columns:1fr; } .vt-offer .l { border-right:0; border-bottom:1px solid var(--b1); } }
 </style>
 </head>
 <body>
@@ -160,6 +253,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
         <li><a href="#services" style="color:var(--blue)">/services</a></li>
         <li><a href="#career" style="color:var(--yellow)">/career</a></li>
         <li><a href="#interests" style="color:var(--teal)">/interests</a></li>
+        <li><a href="#exocortex" style="color:var(--orange)">/exocortex</a></li>
         <li><a href="#writing" style="color:var(--purple)">/writing</a></li>
         <li><a href="#contact" style="color:var(--green)">/contact</a></li>
       </ul>
@@ -216,7 +310,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
       <article class="card">
         <div class="meta"><span style="color:var(--teal)">SVC-04</span><span>obsidian</span></div>
         <h3>PKM setups in Obsidian</h3>
-        <p>A personal knowledge system built around how you think and work, so your notes turn into something you actually use.</p>
+        <p>A personal knowledge system built around how you think and work, so your notes turn into something you actually use. <a href="#exocortex" style="color:var(--teal)">Tour my vault →</a></p>
         <div class="tags"><span class="tag" style="color:var(--teal)">obsidian</span><span class="tag" style="color:var(--blue)">notes</span><span class="tag" style="color:var(--purple)">systems</span></div>
       </article>
       <article class="card">
@@ -247,10 +341,11 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
           <span class="lbl">SIDE QUESTS <span style="color:var(--green)">// certifications</span></span>
           <div class="tags" style="margin-top:0;padding-top:0">
             <span class="tag" style="color:var(--green)">Lean Six Sigma Black Belt</span>
-            <span class="tag" style="color:var(--cyan)">Avionics &amp; Electrical Systems Design</span>
-            <span class="tag" style="color:var(--yellow)">Systems Engineering &amp; Product Development</span>
-            <span class="tag" style="color:var(--teal)">Scaled AGILE Framework</span>
-            <span class="tag" style="color:var(--orange)">Safety Engineering</span>
+            <span class="tag" style="color:var(--cyan)">Avionics &amp; electrical systems design</span>
+            <span class="tag" style="color:var(--yellow)">Systems engineering &amp; product development</span>
+            <span class="tag" style="color:var(--purple)">SysML</span>
+            <span class="tag" style="color:var(--teal)">CATIA harness design</span>
+            <span class="tag" style="color:var(--orange)">AutoCAD</span>
           </div>
         </div>
       </div>
@@ -261,6 +356,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
           <li><span class="yr" style="color:var(--green)"><span class="dot" aria-hidden="true"></span>2026 → now</span><span class="role">Associate Consultant · Products &amp; Systems Engineer</span><span class="org">Capgemini</span><span class="say">Helping a leading aircraft manufacturer get the systems inside its planes just right.</span></li>
           <li><span class="yr">2025 → 2026</span><span class="role">Systems Engineer (SE Advocate)</span><span class="org">Blue-Kei Solutions</span><span class="say">Mapped how an aircraft's avionics talk to each other, and what happens when they stop. Picked up a Tech Achiever award on the way.</span></li>
           <li><span class="yr">2022 → 2023</span><span class="role">Assistant Design Engineer, Aircraft Systems</span><span class="org">Genser Aerospace &amp; IT</span><span class="say">Drew the wiring that runs through a small business jet, one wire at a time.</span></li>
+          <li><span class="yr">2022</span><span class="role">Intern</span><span class="org">Gas Turbine Research Establishment (DRDO)</span><span class="say">Stood next to real jet-engine test rigs and tried very hard not to touch anything.</span></li>
         </ol>
       </div>
 
@@ -311,6 +407,50 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
     </div>
   </section>
 
+
+  <section id="exocortex" class="block vt" aria-labelledby="exocortex-h">
+    <div class="sec-head">
+      <h2 id="exocortex-h">Exocortex</h2>
+      <p class="cmd"><span class="k">obsidian</span> --vault <span class="f">exocortex</span></p>
+    </div>
+    <p class="intro">My second brain: one Obsidian vault, four areas and one MOC template used everywhere. Click around. This is the real system, with my notes swapped for placeholders.</p>
+
+    <div class="vt-win">
+      <div class="vt-bar" aria-hidden="true">
+        <i class="vt-dot"></i><i class="vt-dot"></i><i class="vt-dot"></i>
+        <span class="t" id="vt-tab">Exocortex.md</span>
+        <span class="r">Exocortex · Tokyo Night</span>
+      </div>
+      <div class="vt-body">
+        <nav class="vt-side" id="vt-tree" aria-label="Exocortex folders"></nav>
+        <article class="vt-pane" id="vt-pane" aria-live="polite"></article>
+      </div>
+    </div>
+    <div class="vt-stats" id="vt-stats"></div>
+
+    <div class="panel vt-offer">
+      <div class="l">
+        <span class="lbl">SVC-04 <span style="color:var(--teal)">// obsidian setups</span></span>
+        <h3>Want an Exocortex <span>of your own?</span></h3>
+        <p>I'll build a vault like this around how you think and work, then walk you through it so it keeps working long after the setup call.</p>
+        <div class="btns">
+          <a class="btn pink" href="mailto:akaz.suri14@gmail.com?subject=Obsidian%20setup%20like%20Exocortex">Get a setup like this →</a>
+          <a class="btn ghost" href="#contact">./book-a-chat</a>
+        </div>
+      </div>
+      <div class="r">
+        <span class="lbl">WHAT YOU GET</span>
+        <ul>
+          <li>A folder system that fits your life</li>
+          <li>Maps of content for every area</li>
+          <li>Note, book and MOC templates</li>
+          <li>A homepage dashboard</li>
+          <li>A one-to-one walkthrough</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section id="writing" class="block" aria-labelledby="writing-h">
     <div class="sec-head">
       <h2 id="writing-h">Writing</h2>
@@ -351,6 +491,280 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
 
 <script>
   try { document.getElementById('yr').textContent = new Date().getFullYear(); } catch (e) {}
+</script>
+<script>
+/* =====================================================================
+   VAULT TOUR — TEMPLATE
+   Everything shown comes from the VAULT object below. Edit it to change
+   the tour; no other code needs touching.
+
+   NUMBERING CONVENTION (applied automatically by number() further down)
+   - Top-level areas are numbered by their order: 00, 01, 02, 03 …
+     No gaps. The old vault had 00, 01, 02, 04 — "03" was missing, so the
+     Library is now 03. Empty placeholder folders (05, 06, 07) are gone.
+   - Sub-folders take their parent's number plus a dot: 01.1, 01.2 …
+     (The old "1.2 / 1.7" under 00 Personal become 00.1, 00.2 …)
+   - System folders (attachments, drawings, templates) sit at 99 so they
+     always sort last and never shift the area numbers.
+   - Every area and subject has exactly one MOC, named "<Name> — MOC"
+     (one style, an em dash, no underscores or "MOC_" prefixes).
+   - Card subtitles describe their own area (the old Learning and Work
+     subtitles were swapped).
+   ===================================================================== */
+
+const VAULT = {
+  name: "EXOCORTEX",
+
+  /* Banner + card images. Replace with your own uploads any time. */
+  img: {
+    banner:   "https://i.pinimg.com/originals/8a/cf/f8/8acff8e587df623ec95f8313f9a88ae9.gif",
+    personal: "https://i.pinimg.com/originals/8c/13/01/8c1301d108a7a4f555d1cb8f0ffb63d5.gif",
+    learning: "https://i.pinimg.com/originals/26/45/47/2645475a9eef90f4a1fe67b76ae7d9fa.gif",
+    work:     "https://i.pinimg.com/originals/23/66/07/2366078cc4ac0281f3c543ca62b808d8.gif",
+    library:  "https://i.pinimg.com/originals/33/36/77/333677684140cea5074c069452e4a1e5.gif",
+    s1:       "https://i.pinimg.com/originals/b9/a1/47/b9a147152936479d6ec0c783b8c29576.gif",
+    s2:       "https://i.pinimg.com/originals/2a/df/b9/2adfb9943f46f994b24f0a3caf1c2811.gif",
+    s3:       "https://i.pinimg.com/originals/64/d5/17/64d51720139c813946ca597033215585.gif",
+    s4:       "https://i.pinimg.com/originals/0c/d0/97/0cd097dc4b5e78e0446fc97e4216b520.gif"
+  },
+
+  /* The one MOC template every subject uses */
+  subjectTemplate: [
+    { h: "🧭 Overview",  items: ["What this subject is and why I'm learning it"] },
+    { h: "📝 Notes",     items: ["[[Topic 1]]", "[[Topic 2]]", "[[Topic 3]]"] },
+    { h: "📚 Resources", items: ["[[Book or course]]", "[[Reference PDF]]"] },
+    { h: "✏️ Practice",  items: ["[[Exercises]]", "[[Past papers]]"] },
+    { h: "🎨 Doodles",   items: ["[[Sketches.canvas]]"] }
+  ],
+
+  /* Areas, in order. Numbers are generated from this order. */
+  areas: [
+    {
+      id: "personal", name: "Personal", sub: "Identity · Life · Records", img: "personal",
+      intro: "Every personal record in one place. Sensitive notes are encrypted.",
+      folders: [
+        { name: "Identity",     lock: true },
+        { name: "Education",    items: ["[[Degrees]]", "[[Certificates]]", "[[Transcripts]]"] },
+        { name: "Professional", lock: true },
+        { name: "Finances",     lock: true },
+        { name: "Career",       items: ["[[Resume]]", "[[Application tracker]]", "[[Interview prep]]", "[[Job search — MOC]]"] },
+        { name: "Legal",        lock: true },
+        { name: "Routines",     items: ["[[Daily routine]]", "[[Meal plan]]"] }
+      ]
+    },
+    {
+      id: "learning", name: "Learning", sub: "Skills · Knowledge · Depth", img: "learning",
+      intro: "One folder per subject. Every subject MOC follows the same template.",
+      cards: true,
+      folders: [
+        { name: "Subject A", sub: "Exams · Practice",     img: "s1", subject: true },
+        { name: "Subject B", sub: "Money · Investing",    img: "s2", subject: true },
+        { name: "Subject C", sub: "Languages · Speaking", img: "s3", subject: true },
+        { name: "Subject D", sub: "Business · Strategy",  img: "s4", subject: true },
+        { name: "Subject E", subject: true },
+        { name: "Subject F", subject: true }
+      ]
+    },
+    {
+      id: "work", name: "Work", sub: "Projects · Growth · Strategy", img: "work",
+      intro: "What I learn on the job. Client material never enters the vault.",
+      folders: [
+        { name: "Knowledge", items: ["[[Fundamentals]]", "[[Methods]]", "[[Glossary]]"] },
+        { name: "Projects",  lock: true },
+        { name: "Training",  items: ["[[Course 1]]", "[[Course 2]]", "[[Tool tutorial]]"] },
+        { name: "Documents", lock: true }
+      ]
+    },
+    {
+      id: "library", name: "Library", sub: "Books · Development · Strength", img: "library",
+      intro: "One note per book, shown as a database view.",
+      base: true,
+      shelves: [
+        ["Engineering", "#7dcfff"], ["Money", "#9ece6a"], ["Business", "#f7768e"],
+        ["Philosophy", "#bb9af7"], ["Strategy", "#ff9e64"], ["History", "#e0af68"],
+        ["Fiction", "#73daca"], ["Mythology", "#7aa2f7"]
+      ],
+      booksPerShelf: 2
+    }
+  ],
+
+  /* System folders (always 99) */
+  system: [
+    { name: "Templates", templates: [
+        { id: "tpl-moc",  name: "MOC template" },
+        { id: "tpl-book", name: "Book note template" },
+        { id: "tpl-note", name: "Topic note template" } ] },
+    { name: "Attachments" },
+    { name: "Drawings" }
+  ]
+};
+
+/* ===================== Rendering — no need to edit below ===================== */
+(function () {
+  const $ = id => document.getElementById(id);
+  const treeEl = $("vt-tree"), pane = $("vt-pane"), tab = $("vt-tab");
+  const pad = n => String(n).padStart(2, "0");
+  const wl = s => s.replace(/\[\[(.+?)\]\]/g, '<span class="vt-wl">$1</span>');
+  const list = a => `<ul>${a.map(i => `<li>${wl(i)}</li>`).join("")}</ul>`;
+  const img = k => VAULT.img[k] ? `<img src="${VAULT.img[k]}" alt="" loading="lazy" onerror="this.remove()">` : "";
+  const cards = a => `<div class="vt-cards">${a.map(c => `
+    <button class="vt-card" type="button" data-go="${c.go}"><div class="art">${img(c.img)}</div>
+    <div class="tx"><div class="tt">${c.t}</div><div class="st">${c.s || ""}</div></div></button>`).join("")}</div>`;
+  const moc = name => `${name} — MOC`;
+
+  /* Number everything from its position */
+  VAULT.areas.forEach((a, i) => {
+    a.num = pad(i);
+    a.folders && a.folders.forEach((f, j) => { f.num = `${a.num}.${j + 1}`; f.id = `${a.id}-${j + 1}`; });
+  });
+
+  /* ---- Pages ---- */
+  const pages = {};
+  pages.home = { file: "Exocortex.md", crumb: VAULT.name, html: () => `
+    <div class="vt-banner">${img("banner")}</div>
+    <div class="vt-clock"><div class="tm" id="vt-tm"></div><div class="dt" id="vt-dt"></div></div>
+    ${cards(VAULT.areas.map(a => ({ t: a.name, s: a.sub, img: a.img, go: a.id })))}
+    <div class="vt-note">Exocortex.md opens on launch. The clock and cards are generated with Dataview, so adding an area is one line.</div>` };
+
+  VAULT.areas.forEach(a => {
+    const fname = a.base ? `${a.num} ${a.name}.base` : `${moc(a.num + " " + a.name)}.md`;
+    pages[a.id] = { file: fname, crumb: `${VAULT.name} / ${a.num} ${a.name}`, html: () => {
+      let h = `<h3>${a.name}</h3><p>${a.intro}</p>`;
+      if (a.cards) {
+        h += cards(a.folders.filter(f => f.img).map(f => ({ t: f.name, s: f.sub, img: f.img, go: f.id })));
+        const rest = a.folders.filter(f => !f.img);
+        if (rest.length) h += `<h4>Also in here</h4>` + list(rest.map(f => `[[${moc(f.name)}]]`));
+      } else if (a.base) {
+        h += `<div class="vt-books">${a.shelves.flatMap(([s, c]) =>
+          Array.from({ length: a.booksPerShelf }, (_, k) =>
+            `<div class="vt-book" style="--c:${c}">Book title ${k + 1}<br>by Author<small>${s}</small></div>`)).join("")}</div>`;
+      } else {
+        a.folders.forEach(f => {
+          h += `<h4>${f.num} ${f.name}</h4>` + (f.lock ? `<p class="vt-lock">🔒 Encrypted — not part of the tour</p>` : list(f.items || []));
+        });
+      }
+      return h;
+    }};
+    (a.folders || []).filter(f => f.subject).forEach(f => {
+      pages[f.id] = { file: `${moc(f.name)}.md`, crumb: `${VAULT.name} / ${a.num} ${a.name} / ${f.num} ${f.name}`, html: () =>
+        `<h3>${f.name}</h3>` + VAULT.subjectTemplate.map(s => `<h4>${s.h}</h4>` + list(s.items)).join("") +
+        `<div class="vt-note">Same headings in every subject, so any MOC reads the same way.</div>` };
+    });
+  });
+
+  const tplPages = {
+    "tpl-moc": `<h3>MOC template</h3><div class="vt-fm"><b>---</b>
+<b>type:</b> moc
+<b>area:</b> {{area}}
+<b>banner:</b> {{image}}
+<b>---</b></div>` + VAULT.subjectTemplate.map(s => `<h4>${s.h}</h4>` + list(["…"])).join(""),
+    "tpl-book": `<h3>Book note template</h3><div class="vt-fm"><b>---</b>
+<b>type:</b> book
+<b>author:</b> {{author}}
+<b>shelf:</b> {{shelf}}
+<b>status:</b> reading | done
+<b>rating:</b> 1–5
+<b>---</b></div><h4>💡 Big idea</h4>${list(["One sentence"])}<h4>📝 Key notes</h4>${list(["…"])}<h4>🔗 Links</h4>${list(["[[Related topic]]"])}`,
+    "tpl-note": `<h3>Topic note template</h3><div class="vt-fm"><b>---</b>
+<b>type:</b> note
+<b>moc:</b> [[{{subject}} — MOC]]
+<b>created:</b> {{date}}
+<b>---</b></div><h4>❓ Question</h4>${list(["What am I trying to understand?"])}<h4>📝 Notes</h4>${list(["…"])}<h4>🔗 Related</h4>${list(["[[Topic]]"])}`
+  };
+  Object.entries(tplPages).forEach(([id, html]) => {
+    const t = VAULT.system[0].templates.find(x => x.id === id);
+    pages[id] = { file: `${t.name}.md`, crumb: `${VAULT.name} / 99 System / Templates`, html: () => html };
+  });
+
+  /* ---- Tree ---- */
+  const tree = [{ t: "Exocortex.md", go: "home", file: true, moc: true }];
+  VAULT.areas.forEach(a => {
+    const kids = (a.folders || []).map(f => f.lock
+      ? { num: f.num, t: f.name, lock: true }
+      : { num: f.num, t: f.name, kids: f.subject ? [{ t: moc(f.name), go: f.id, file: true, moc: true }] : [{ t: "…", file: true }] });
+    if (a.base) kids.push({ t: "Books", n: a.shelves.length * a.booksPerShelf });
+    kids.push({ t: a.base ? `${a.num} ${a.name}.base` : moc(`${a.num} ${a.name}`), go: a.id, file: true, moc: true });
+    tree.push({ num: a.num, t: a.name, kids, open: a.id === "learning" });
+  });
+  tree.push({ num: "99", t: "System", kids: VAULT.system.map(s => s.templates
+    ? { t: s.name, kids: s.templates.map(x => ({ t: x.name, go: x.id, file: true, tpl: true })) }
+    : { t: s.name }) });
+
+  const lbl = document.createElement("div"); lbl.className = "lbl"; lbl.textContent = VAULT.name; treeEl.appendChild(lbl);
+  (function build(nodes, parent) {
+    nodes.forEach(nd => {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "vt-node" + (nd.file ? " file" : "") + (nd.moc ? " moc" : "") + (nd.tpl ? " tpl" : "") + (nd.lock ? " lock" : "");
+      const ic = nd.lock ? "🔒" : nd.file ? "◇" : nd.kids && nd.open ? "▾" : "▸";
+      b.innerHTML = `<span class="ic">${ic}</span><span>${nd.num ? `<span class="num">${nd.num}</span> ` : ""}${nd.t}</span>${nd.n ? `<span class="n">${nd.n}</span>` : ""}`;
+      if (nd.go) b.dataset.go = nd.go;
+      if (nd.lock) { b.setAttribute("aria-disabled", "true"); b.title = "Encrypted"; }
+      parent.appendChild(b);
+      if (nd.kids) {
+        const k = document.createElement("div");
+        k.className = "vt-kids"; k.hidden = !nd.open;
+        b.setAttribute("aria-expanded", String(!!nd.open));
+        build(nd.kids, k); parent.appendChild(k);
+        b.addEventListener("click", () => {
+          k.hidden = !k.hidden;
+          b.setAttribute("aria-expanded", String(!k.hidden));
+          b.querySelector(".ic").textContent = k.hidden ? "▸" : "▾";
+          const m = nd.kids.find(c => c.moc);
+          if (!k.hidden && m) show(m.go);
+        });
+      }
+    });
+  })(tree, treeEl);
+
+  /* ---- Navigation ---- */
+  function expandTo(id) {
+    const node = treeEl.querySelector(`.vt-node[data-go="${id}"]`);
+    let el = node && node.parentElement;
+    while (el && el !== treeEl) {
+      if (el.classList.contains("vt-kids") && el.hidden) {
+        el.hidden = false;
+        const btn = el.previousElementSibling;
+        btn.setAttribute("aria-expanded", "true");
+        btn.querySelector(".ic").textContent = "▾";
+      }
+      el = el.parentElement;
+    }
+  }
+  let clockTimer;
+  function show(id) {
+    const p = pages[id]; if (!p) return;
+    pane.innerHTML = `<div class="vt-crumb">${p.crumb}</div>` + p.html();
+    tab.textContent = p.file;
+    expandTo(id);
+    treeEl.querySelectorAll(".vt-node").forEach(n => n.classList.toggle("on", n.dataset.go === id));
+    pane.scrollTop = 0;
+    clearInterval(clockTimer);
+    if (id === "home") { tick(); clockTimer = setInterval(tick, 30000); }
+  }
+  function tick() {
+    const tm = $("vt-tm"), dt = $("vt-dt"); if (!tm) return;
+    const now = new Date();
+    tm.textContent = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    dt.textContent = now.toLocaleDateString([], { weekday: "long", month: "long", day: "numeric" });
+  }
+  document.querySelector(".vt").addEventListener("click", e => {
+    const t = e.target.closest("[data-go]");
+    if (t && !t.classList.contains("lock")) show(t.dataset.go);
+  });
+
+  /* ---- Stats (computed from the template) ---- */
+  const subjects = VAULT.areas.flatMap(a => a.folders || []).filter(f => f.subject).length;
+  const mocs = 1 + VAULT.areas.length + subjects;
+  $("vt-stats").innerHTML = `
+    <span><b>${VAULT.areas.length}</b> areas</span>
+    <span><b>${mocs}</b> maps of content</span>
+    <span><b>1</b> MOC template, used everywhere</span>
+    <span><b>≤ 3</b> clicks from home to any note</span>`;
+
+  show("home");
+})();
+/* ====== END VAULT TOUR SCRIPT ====== */
 </script>
 </body>
 </html>
