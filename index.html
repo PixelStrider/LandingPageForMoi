@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Akash Suresh — aerospace engineer, tutor, writer</title>
-<meta name="description" content="Akash Suresh: aerospace products and systems engineer, tutor, mentor and author of the Broke-ish series.">
+<title>Akash Suresh — aerospace engineer, writer, tinkerer</title>
+<meta name="description" content="Akash Suresh: aerospace products and systems engineer, tinkerer and author of the Broke-ish series.">
 <meta property="og:title" content="Akash Suresh">
-<meta property="og:description" content="Aerospace engineer, tutor, mentor and author of the Broke-ish series.">
+<meta property="og:description" content="Aerospace engineer, tinkerer and author of the Broke-ish series.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://akash-suresh.in/">
 <meta name="theme-color" content="#1a1b26">
@@ -87,8 +87,6 @@ h2{margin:0;font-family:var(--sans);font-weight:500;font-size:clamp(34px, 4.4vw,
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:4px}
 .tag{border:1px solid var(--line);border-radius:4px;padding:3px 10px;font-size:12px}
 
-.note{margin:24px 0 0;padding:16px 20px;border:1px dashed var(--line2);border-radius:8px;color:var(--text2);display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between}
-.note a{color:var(--green)}
 
 /* interests */
 .interests{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--s1)}
@@ -206,17 +204,6 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
   }
   @media (prefers-reduced-motion:reduce) { .vt-card { transition:none; } .vt-card:hover { transform:none; } }
   
-  .vt-offer { margin-top:20px; display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr); gap:0; }
-  .vt-offer .l { padding:28px; border-right:1px solid var(--b1); display:flex; flex-direction:column; gap:14px; }
-  .vt-offer .r { padding:28px; display:flex; flex-direction:column; gap:12px; justify-content:center; background:var(--s2); }
-  .vt-offer h3 { margin:0; font-family:var(--sans); font-weight:500; font-size:clamp(24px,2.6vw,32px); line-height:1.15; }
-  .vt-offer h3 span { color:var(--purple); }
-  .vt-offer p { margin:0; color:var(--tx2); }
-  .vt-offer .lbl { font-size:12px; color:var(--mu); letter-spacing:.08em; }
-  .vt-offer ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; color:var(--tx2); }
-  .vt-offer li::before { content:"✓ "; color:var(--green); }
-  @media (max-width:760px){ .vt-offer { grid-template-columns:1fr; } .vt-offer .l { border-right:0; border-bottom:1px solid var(--b1); } }
-
   /* exocortex v2: views, graph, full screen, mobile */
   .vt-bar { flex-wrap:nowrap; }
   .vt-dots { display:flex; gap:8px; }
@@ -275,14 +262,14 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
     <nav aria-label="Primary">
       <ul>
         <li><a href="#about" style="color:var(--pink)">/about</a></li>
-        <li><a href="#services" style="color:var(--blue)">/services</a></li>
+        <li><a href="#projects" style="color:var(--blue)">/projects</a></li>
         <li><a href="#interests" style="color:var(--teal)">/interests</a></li>
         <li><a href="#exocortex" style="color:var(--orange)">/exocortex</a></li>
         <li><a href="#writing" style="color:var(--purple)">/writing</a></li>
-        <li><a href="#contact" style="color:var(--green)">/contact</a></li>
+        <li><a href="#contact" style="color:var(--green)">/say-hello</a></li>
       </ul>
     </nav>
-    <span class="status"><span class="dot" aria-hidden="true"></span>open to tutoring &amp; mentoring</span>
+    <a class="status" href="#writing" style="text-decoration:none"><span class="dot" aria-hidden="true"></span>Broke-ish Vol. 1 · out now</a>
   </div>
 </div>
 
@@ -291,7 +278,7 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
   <section id="top" class="hero">
     <p class="prompt"><span class="t">~</span> <span class="d">$</span> whoami</p>
     <h1>Akash Suresh</h1>
-    <p class="lede">By day I help a <span class="c">leading aircraft manufacturer</span> build the systems inside its planes. The rest of the time I teach, tinker, invest and write about <span class="p">money in plain words</span>.</p>
+    <p class="lede">I work on <span class="c">those flying metal tubes in the sky</span>, building the systems inside them. The rest of the time I tinker, invest, take photos and write about <span class="p">whatever I'm learning</span>.</p>
     <p class="ask">Quick question before you scroll: <strong>what's a problem you keep noticing that nobody has fixed yet?</strong><span class="cursor" aria-hidden="true"></span></p>
   </section>
 
@@ -303,49 +290,9 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
       <div><dt style="color:var(--teal)">TRAINED IN</dt><dd>Electronics &amp; comms (B.Tech) · Electrical &amp; computer eng. (M.Eng)</dd></div>
       <div><dt style="color:var(--blue)">CURRENT HEADING</dt><dd>Leadership, more writing, always learning</dd></div>
     </dl>
-    <p class="bio"><span>//</span> Aircraft have fascinated me for as long as I can remember, so I made a career out of them. Today I work with a leading aircraft manufacturer, making sure an aircraft's systems fit together, talk to each other and stay safe when something goes wrong. Along the way I've designed wiring for a business jet, worked beside jet-engine test rigs and studied on two continents. The thread running through all of it is taking something complicated and making it make sense. That's what I do off the clock too: helping students actually <em>get</em> maths and science, helping people choose a career or a country to study in, building note systems that make thinking easier, and writing books that make money feel a lot less scary.</p>
+    <p class="bio"><span>//</span> Aircraft have fascinated me for as long as I can remember, so I made a career out of them. Today I work on aircraft, making sure their systems fit together, talk to each other and stay safe when something goes wrong. Along the way I've designed wiring for a business jet, worked beside jet-engine test rigs and studied on two continents. The thread running through all of it is taking something complicated and making it make sense. It's what I chase off the clock too: building a note system that makes thinking easier, 3D printing things I've designed, figuring out how money and startups really work, and writing books that make money feel a lot less scary.</p>
   </section>
 
-  <section id="services" class="block" aria-labelledby="services-h">
-    <div class="sec-head">
-      <h2 id="services-h">How I can help</h2>
-      <p class="cmd"><span class="k">ls</span> ./services <span class="f">--open</span></p>
-    </div>
-    <p class="intro">One-to-one sessions, online. Get in touch and tell me what you need; I'll share my hourly rate and we'll take it from there.</p>
-    <div class="grid">
-      <article class="card">
-        <div class="meta"><span style="color:var(--blue)">SVC-01</span><span>classes 6–12</span></div>
-        <h3>Science &amp; maths tutoring</h3>
-        <p>Patient, concept-first help with school maths and science, so the "why" makes sense before the exam questions do.</p>
-        <div class="tags"><span class="tag" style="color:var(--teal)">maths</span><span class="tag" style="color:var(--yellow)">physics</span><span class="tag" style="color:var(--green)">science</span></div>
-      </article>
-      <article class="card">
-        <div class="meta"><span style="color:var(--purple)">SVC-02</span><span>students &amp; graduates</span></div>
-        <h3>Career counselling</h3>
-        <p>Figuring out what to study, which path to take, and how engineering careers actually look from the inside, aerospace included.</p>
-        <div class="tags"><span class="tag" style="color:var(--purple)">careers</span><span class="tag" style="color:var(--cyan)">engineering</span></div>
-      </article>
-      <article class="card">
-        <div class="meta"><span style="color:var(--orange)">SVC-03</span><span>been there, done that</span></div>
-        <h3>Studying abroad? I can help</h3>
-        <p>I did my master's abroad. I can help you choose programmes, plan applications and know what to expect when you land.</p>
-        <div class="tags"><span class="tag" style="color:var(--orange)">applications</span><span class="tag" style="color:var(--yellow)">planning</span></div>
-      </article>
-      <article class="card">
-        <div class="meta"><span style="color:var(--teal)">SVC-04</span><span>obsidian</span></div>
-        <h3>PKM setups in Obsidian</h3>
-        <p>A personal knowledge system built around how you think and work, so your notes turn into something you actually use. <a href="#exocortex" style="color:var(--teal)">Tour my vault →</a></p>
-        <div class="tags"><span class="tag" style="color:var(--teal)">obsidian</span><span class="tag" style="color:var(--blue)">notes</span><span class="tag" style="color:var(--purple)">systems</span></div>
-      </article>
-      <article class="card">
-        <div class="meta"><span style="color:var(--green)">SVC-05</span><span>quick win</span></div>
-        <h3>LinkedIn profile reviews</h3>
-        <p>An honest read of your profile with concrete fixes to your headline, summary and experience, so the right people notice you.</p>
-        <div class="tags"><span class="tag" style="color:var(--green)">linkedin</span><span class="tag" style="color:var(--pink)">personal brand</span></div>
-      </article>
-    </div>
-    <div class="note"><span>// rates are hourly and shared on request</span><a href="#contact">./book-a-chat →</a></div>
-  </section>
 
 
   <section id="projects" class="block" aria-labelledby="projects-h">
@@ -426,27 +373,6 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
     <button type="button" class="btn ghost vt-mobopen" data-vt-full>Open Exocortex full screen →</button>
     <div class="vt-stats" id="vt-stats"></div>
 
-    <div class="panel vt-offer">
-      <div class="l">
-        <span class="lbl">SVC-04 <span style="color:var(--teal)">// obsidian setups</span></span>
-        <h3>Want an Exocortex <span>of your own?</span></h3>
-        <p>I'll build a vault like this around how you think and work, then walk you through it so it keeps working long after the setup call.</p>
-        <div class="btns">
-          <a class="btn pink" href="mailto:akaz.suri14@gmail.com?subject=Obsidian%20setup%20like%20Exocortex">Get a setup like this →</a>
-          <a class="btn ghost" href="#contact">./book-a-chat</a>
-        </div>
-      </div>
-      <div class="r">
-        <span class="lbl">WHAT YOU GET</span>
-        <ul>
-          <li>A folder system that fits your life</li>
-          <li>Maps of content for every area</li>
-          <li>Note, book and MOC templates</li>
-          <li>A homepage dashboard</li>
-          <li>A one-to-one walkthrough</li>
-        </ul>
-      </div>
-    </div>
   </section>
 
   <section id="writing" class="block" aria-labelledby="writing-h">
@@ -474,13 +400,13 @@ footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;paddin
   </section>
 
   <section id="contact" class="block panel contact" aria-labelledby="contact-h">
-    <p class="prompt"><span class="t">~</span> <span class="d">$</span> ./contact <span class="f">--now</span></p>
-    <h2 id="contact-h">Have a problem<br><span>worth solving?</span></h2>
-    <p class="sub">Tutoring, career or study-abroad questions, an Obsidian setup or a LinkedIn review, or just a good conversation about aircraft, money or startups. Send me a note.</p>
+    <p class="prompt"><span class="t">~</span> <span class="d">$</span> ./say-hello <span class="f">--anytime</span></p>
+    <h2 id="contact-h">Fancy a chat?<br><span>Say hello.</span></h2>
+    <p class="sub">Read the book, liked the vault, or have an answer to that question at the top? I'm always up for a good conversation about aircraft, money, startups or notes. Drop me a line or connect wherever suits you.</p>
     <div class="btns">
-      <a class="btn blue" href="mailto:akaz.suri14@gmail.com?subject=Hello%20from%20akash-suresh.in">akaz.suri14@gmail.com →</a>
-      <a class="btn green" href="https://www.linkedin.com/in/akash-suresh14/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn pink" href="https://www.instagram.com/_life_according_to_akash_/" target="_blank" rel="noopener">Instagram</a>
+      <a class="btn blue" href="mailto:akaz.suri14@gmail.com?subject=Hello%20from%20akash-suresh.in">Email me →</a>
+      <a class="btn green" href="https://www.linkedin.com/in/akash-suresh14/" target="_blank" rel="noopener">Let's connect on LinkedIn</a>
+      <a class="btn pink" href="https://www.instagram.com/_life_according_to_akash_/" target="_blank" rel="noopener">Follow along on Instagram</a>
     </div>
   </section>
 
